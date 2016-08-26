@@ -28,4 +28,4 @@ build:
     - script:
         name: local setup
         code: |
-          ansible-playbook playbook.yml -c local -i all
+          ansible-playbook playbook.yml -c local -i all -v
