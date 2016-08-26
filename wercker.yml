@@ -1,6 +1,6 @@
 box: ubuntu:14.04
 
-build-ansible:
+build:
   steps:
     - script:
         name: update environment
@@ -14,3 +14,4 @@ build-ansible:
           apt-get install mysql-server
           mysql --version
           sudo service mysql start
+          ps auxf | grep mysql
