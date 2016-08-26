@@ -1,6 +1,6 @@
 box: ubuntu:14.04
 
-build-ansible:
+build:
   steps:
     - script:
         name: update environment
@@ -25,8 +25,7 @@ build-ansible:
         code: |
           pip install httplib2 six ansible==2.1.1.0
 
-#    - script:
-#        name: local setup
-#        code: |
-#          cd ./ansible
-#          ansible-playbook playbook.yml -i hosts -k
+    - script:
+        name: local setup
+        code: |
+          ansible-playbook playbook.yml -i hosts -k
