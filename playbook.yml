@@ -18,6 +18,9 @@
         name: 'mysql'
         state: 'started'
         enabled: true
+        
+    - name: service
+      shell: sudo service mysql restart
 
     - name: Update root password for all root accounts
       mysql_user:
@@ -25,7 +28,7 @@
         host: "{{ item }}"
         password: test
         check_implicit_admin: yes
-        with_items:
-          - 127.0.0.1
-          - ::1
-          - localhost
+      with_items:
+        - 127.0.0.1
+        - ::1
+        - localhost
