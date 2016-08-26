@@ -1,0 +1,31 @@
+---
+- hosts: all
+  become: yes
+  tasks:
+    - name: install client
+      apt: name={{ item }} state=latest
+      with_items:
+        - mysql-client
+
+    - name: Install mysql server
+      apt: name={{ item }} state=latest
+      with_items:
+        - mysql-server
+        - python-mysqldb
+
+    - name: Set mysql service to start on boot
+      service:
+        name: 'mysql'
+        state: 'started'
+        enabled: true
+
+    - name: Update root password for all root accounts
+      mysql_user:
+      name: 'root'
+      host: "{{ item }}"
+      password: test
+      check_implicit_admin: yes
+      with_items:
+        - 127.0.0.1
+        - ::1
+        - localhost
