@@ -1,0 +1,16 @@
+box: ubuntu:14.04
+
+build-ansible:
+  steps:
+    - script:
+        name: update environment
+        code: |
+          apt-get -y update
+          apt-get -y upgrade
+
+    - script:
+        name: install mysql
+        code: |
+          apt-get install mysql-server
+          mysql --version
+          sudo service mysql start
