@@ -11,7 +11,7 @@ build:
     - script:
         name: install mysql
         code: |
-          apt-get install mysql-server
+          apt-get install mysql-server -y
           mysql --version
           sudo service mysql start
           ps auxf | grep mysql
