@@ -18,6 +18,7 @@
         name: 'mysql'
         state: 'started'
         enabled: true
+      become: yes
         
 #    - name: service
 #      shell: sudo service mysql restart
