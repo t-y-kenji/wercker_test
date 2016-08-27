@@ -19,8 +19,8 @@
         state: 'started'
         enabled: true
         
-    - name: service
-      shell: sudo service mysql restart
+#    - name: service
+#      shell: sudo service mysql restart
 
     - name: Update root password for all root accounts
       mysql_user:
