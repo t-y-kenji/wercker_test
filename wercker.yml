@@ -1,31 +1,6 @@
-box: ubuntu:14.04
-services:
-  - id: ansible/ansible
+box: ykenj1/u1404_ansible_wercker
 build:
   steps:
-    - script:
-        name: update environment
-        code: |
-          apt-get -y update
-          apt-get -y upgrade
-
-    - script:
-        name: install python and dependencies for ansible
-        code: |
-          apt-get -y install python-pip
-          apt-get -y install python2.7-dev
-          apt-get -y install libssl-dev
-          apt-get -y install libffi-dev
-          apt-get -y install libpython2.7-dev
-          apt-get -y install libyaml-dev
-          pip install --upgrade setuptools
-          pip install --upgrade pip
-
-    - script:
-        name: install-ansible
-        code: |
-          pip install httplib2 six ansible==2.1.1.0
-
     - script:
         name: local setup
         code: |
